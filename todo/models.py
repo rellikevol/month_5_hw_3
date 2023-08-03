@@ -1,7 +1,6 @@
 from django.db import models
 from users.models import User
 
-# Create your models here.
 
 class ToDo(models.Model):
     title = models.CharField(max_length=30, verbose_name='Заголовок')
