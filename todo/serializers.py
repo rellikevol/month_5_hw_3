@@ -5,12 +5,13 @@ from users.models import User
 class ToDoSerializer(serializers.ModelSerializer):
     class Meta:
         model = ToDo
-        fields = ('title', 'description', 'is_completed', 'created_at', 'image')
+        fields = ('id', 'title', 'description', 'is_completed', 'created_at', 'image')
+
 
 class ToDoCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = ToDo
-        fields = ('title', 'description', 'image')
+        fields = ('id', 'title', 'description', 'image')
 
     def create(self, validated_data: dict):
         user = User.objects.get(pk=self.context['request'].user.id)
@@ -22,3 +23,6 @@ class ToDoCreateSerializer(serializers.ModelSerializer):
         )
         task.save()
         return task
+
+
+

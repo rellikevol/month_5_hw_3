@@ -21,7 +21,7 @@ class PhoneNumberField(models.TextField):
 
 class User(AbstractUser):
     phone_number = PhoneNumberField(max_length=13, verbose_name='Номер телефона')
-    age = models.IntegerField(max_length=150, verbose_name="Возраст")
+    age = models.IntegerField(verbose_name="Возраст", default=0)
 
     class Meta:
         verbose_name = 'Пользователь'
